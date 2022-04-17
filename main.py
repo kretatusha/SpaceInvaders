@@ -261,4 +261,5 @@ def main_menu():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 main()
     pygame.quit()
-main_menu()
+if __name__ == "__main__":
+    main_menu()
