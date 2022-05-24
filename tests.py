@@ -23,6 +23,7 @@ class GameTest(TestCase):
         self.assertEqual(s.level, data['current_level'])
 
     def test_load_previous_game(self):
+        table = UserTable('data/table.txt')
         s = Game(name='check')
         s.save_data()
         pygame.quit()
@@ -35,7 +36,8 @@ class GameTest(TestCase):
     def test_check_res(self):
         if os.path.exists('data/table.txt'):
             os.remove('data/table.txt')
-        s = Game(name='check')
+        table = UserTable('data/table.txt')
+        s = Game(name='check',table = table)
         s.level = 2
         s.score =200
         s.save_results()
@@ -46,5 +48,4 @@ class GameTest(TestCase):
 
 
 if __name__ == '__main__':
-    table = UserTable('data/table.txt')
     main()

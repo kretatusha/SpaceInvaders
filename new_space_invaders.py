@@ -199,6 +199,7 @@ class Game:
         self.lost = True
         self.music.stop()
         self.save_results()
+        self.save_data()
         while over:
             win_surf = self.font.render(text, False, 'white')
             win_rect = win_surf.get_rect(center=(self.WIDTH / 2, self.HEIGHT / 2))
@@ -211,7 +212,7 @@ class Game:
             keys = pygame.key.get_pressed()
             if keys[pygame.K_RETURN]:
                 over = False
-                self.__init__(self.name, self.table, self.game_cycle)
+                self.__init__(name = self.name, table = self.table, game_cycle = self.game_cycle)
             if keys[pygame.K_ESCAPE]:
                 over = False
                 self.game_cycle = False
